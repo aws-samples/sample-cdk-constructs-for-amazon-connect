@@ -8,6 +8,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'https://aws.amazon.com',
   cdkVersion: CDK_LIB_VERSION,
   defaultReleaseBranch: 'main',
+  release: true,
+  releaseToNpm: false,
+  depsUpgrade: false,
+
   jsiiVersion: '~5.9.23',
   name: 'cdk-constructs-for-amazon-connect',
   projenrcTs: true,
@@ -64,9 +68,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   license: 'MIT-0',
   copyrightOwner: 'Amazon.com, Inc.',
   gitignore: ['/docs'],
-  githubOptions: {
-    workflows: false,
-  },
 });
 
 project.addScripts({
@@ -122,6 +123,15 @@ new GitlabConfiguration(project, {
   },
   variables: {
     NODE_OPTIONS: '--max_old_space_size=3584',
+  },
+});
+
+// Customize GitHub release workflow to attach build artifacts
+project.release?.publisher.addGitHubPostPublishingSteps({
+  name: 'Upload artifacts to release',
+  run: 'gh release upload $(cat dist/releasetag.txt) -R $GITHUB_REPOSITORY dist/js/*.tgz --clobber',
+  env: {
+    GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
   },
 });
 
