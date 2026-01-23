@@ -129,7 +129,7 @@ new GitlabConfiguration(project, {
 // Customize GitHub release workflow to attach build artifacts
 project.release?.publisher.addGitHubPostPublishingSteps({
   name: 'Upload artifacts to release',
-  run: 'gh release upload $(cat dist/releasetag.txt) dist/js/*.tgz --clobber',
+  run: 'gh release upload $(cat dist/releasetag.txt) -R $GITHUB_REPOSITORY dist/js/*.tgz --clobber',
   env: {
     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
   },
