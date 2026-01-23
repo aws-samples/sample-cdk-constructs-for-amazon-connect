@@ -7,7 +7,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Amazon Web Services',
   authorAddress: 'https://aws.amazon.com',
   cdkVersion: CDK_LIB_VERSION,
-  defaultReleaseBranch: 'main',
+  defaultReleaseBranch: 'develop',
+  release: true,
+  releaseToNpm: false,
+  depsUpgrade: false,
+
   jsiiVersion: '~5.9.23',
   name: 'cdk-constructs-for-amazon-connect',
   projenrcTs: true,
@@ -64,9 +68,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   license: 'MIT-0',
   copyrightOwner: 'Amazon.com, Inc.',
   gitignore: ['/docs'],
-  githubOptions: {
-    workflows: false,
-  },
 });
 
 project.addScripts({

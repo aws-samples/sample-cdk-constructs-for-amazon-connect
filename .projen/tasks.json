@@ -195,17 +195,13 @@
         }
       ]
     },
-    "post-upgrade": {
-      "name": "post-upgrade",
-      "description": "Runs after upgrading dependencies"
-    },
     "pre-compile": {
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
-    "release": {
-      "name": "release",
-      "description": "Prepare a release from \"main\" branch",
+    "release:develop": {
+      "name": "release:develop",
+      "description": "Prepare a release from \"develop\" branch",
       "env": {
         "RELEASE": "true"
       },
@@ -263,30 +259,6 @@
       "steps": [
         {
           "builtin": "release/reset-version"
-        }
-      ]
-    },
-    "upgrade": {
-      "name": "upgrade",
-      "description": "upgrade dependencies",
-      "env": {
-        "CI": "0"
-      },
-      "steps": [
-        {
-          "exec": "npx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-pacmak,prettier,projen,ts-jest,ts-node,typedoc,typescript,@types/aws-lambda,cdk-nag"
-        },
-        {
-          "exec": "npm install"
-        },
-        {
-          "exec": "npm update @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version cross-env esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii lint-staged prettier projen simple-git-hooks ts-jest ts-node typedoc typescript @aws-sdk/client-connect @aws-sdk/client-connectcases @aws-sdk/client-qconnect @types/aws-lambda aws-cdk-lib constructs cdk-nag"
-        },
-        {
-          "exec": "npx projen"
-        },
-        {
-          "spawn": "post-upgrade"
         }
       ]
     },
