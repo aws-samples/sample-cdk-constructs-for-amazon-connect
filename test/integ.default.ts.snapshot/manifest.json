@@ -1,0 +1,2445 @@
+{
+  "version": "50.0.0",
+  "artifacts": {
+    "TestConnectStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "TestConnectStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "TestConnectStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "TestConnectStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/09de06e4f4943a56b960e0ccccfb4b8e9b613fc92d9ecbd063dc1cad77861bd5.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "TestConnectStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "TestConnectStack.assets"
+      ],
+      "metadata": {
+        "/TestConnectStack/Key": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "enableKeyRotation": true,
+              "removalPolicy": "destroy"
+            }
+          }
+        ],
+        "/TestConnectStack/Key/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Key961B73FD"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstance4A99B01E"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-CALL_RECORDINGS/Resource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigCALLRECORDINGS0770A7D0"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-CHAT_TRANSCRIPTS/Resource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigCHATTRANSCRIPTSC33D1056"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-SCHEDULED_REPORTS/Resource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigSCHEDULEDREPORTSAB53D8B8"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-ATTACHMENTS/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-ATTACHMENTS/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigATTACHMENTS2239130F"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-CONTACT_EVALUATIONS/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-CONTACT_EVALUATIONS/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigCONTACTEVALUATIONS3DDA3CF1"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-SCREEN_RECORDINGS/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-SCREEN_RECORDINGS/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigSCREENRECORDINGS7F7EBBA6"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-EMAIL_MESSAGES/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/TestConnectInstance/Config-EMAIL_MESSAGES/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TestConnectInstanceConfigEMAILMESSAGES2C550FF7"
+          }
+        ],
+        "/TestConnectStack/ConnectLogBucket": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "encryptionKey": "*",
+              "enforceSSL": true,
+              "autoDeleteObjects": true,
+              "removalPolicy": "destroy"
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectLogBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectLogBucket62EECC5D"
+          }
+        ],
+        "/TestConnectStack/ConnectLogBucket/Policy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "bucket": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectLogBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectLogBucketPolicy712E5312"
+          }
+        ],
+        "/TestConnectStack/ConnectLogBucket/AutoDeleteObjectsCustomResource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ConnectLogBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectLogBucketAutoDeleteObjectsCustomResource0F297D26"
+          }
+        ],
+        "/TestConnectStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/TestConnectStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/TestConnectStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/TestConnectStack/ConnectRecordingBucket": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "serverAccessLogsBucket": "*",
+              "serverAccessLogsPrefix": "*",
+              "encryptionKey": "*",
+              "enforceSSL": true,
+              "autoDeleteObjects": true,
+              "removalPolicy": "destroy"
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectRecordingBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectRecordingBucketD32AA64B"
+          }
+        ],
+        "/TestConnectStack/ConnectRecordingBucket/Policy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "bucket": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectRecordingBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectRecordingBucketPolicy426060E1"
+          }
+        ],
+        "/TestConnectStack/ConnectRecordingBucket/AutoDeleteObjectsCustomResource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ConnectRecordingBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectRecordingBucketAutoDeleteObjectsCustomResource5E1ADF92"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*",
+              "code": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderOnEventHandlerServiceRole054F441A"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderOnEventHandlerServiceRoleDefaultPolicy727529C4"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderOnEventHandlerA1455F6A"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/OnEventHandler/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderOnEventHandlerLogGroup1E53A34A"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "code": "*",
+              "description": "*",
+              "runtime": "*",
+              "handler": "*",
+              "timeout": "*",
+              "loggingFormat": "JSON",
+              "applicationLogLevelV2": "FATAL",
+              "logGroup": "*",
+              "vpc": "*",
+              "vpcSubnets": "*",
+              "securityGroups": "*",
+              "role": "*",
+              "functionName": "*",
+              "environmentEncryption": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addEnvironment": [
+                "*",
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderframeworkonEventServiceRole9EA1F8D0"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderframeworkonEventServiceRoleDefaultPolicy1C78B94B"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderframeworkonEventF4B82BDF"
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/InstanceStorageConfigProvider/Provider/framework-onEvent/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceStorageConfigProviderframeworkonEventLogGroup7628B5B5"
+          }
+        ],
+        "/TestConnectStack/UserSample/TestHoursOfOperation/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserSampleTestHoursOfOperationBF27A7B9"
+          }
+        ],
+        "/TestConnectStack/UserSample/TestQueue/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserSampleTestQueue15C8D25C"
+          }
+        ],
+        "/TestConnectStack/UserSample/TestSecurityProfile/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserSampleTestSecurityProfile6A6BF375"
+          }
+        ],
+        "/TestConnectStack/UserSample/TestRoutingProfile/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserSampleTestRoutingProfileFBA0B5F5"
+          }
+        ],
+        "/TestConnectStack/UserSample/User-test/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserSampleUsertest15E3FB56"
+          }
+        ],
+        "/TestConnectStack/QconnectSrcBucket": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "serverAccessLogsBucket": "*",
+              "serverAccessLogsPrefix": "*",
+              "encryptionKey": "*",
+              "enforceSSL": true,
+              "autoDeleteObjects": true,
+              "removalPolicy": "destroy"
+            }
+          }
+        ],
+        "/TestConnectStack/QconnectSrcBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSrcBucketCED3617E"
+          }
+        ],
+        "/TestConnectStack/QconnectSrcBucket/Policy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "bucket": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/QconnectSrcBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSrcBucketPolicy254386F4"
+          }
+        ],
+        "/TestConnectStack/QconnectSrcBucket/AutoDeleteObjectsCustomResource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/QconnectSrcBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSrcBucketAutoDeleteObjectsCustomResource2516F4F4"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestAssistant/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSampleTestAssistant39CE9C01"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestAssistant/TestAssistantAssociation/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestAssistant/TestAssistantAssociation/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSampleTestAssistantTestAssistantAssociationA72E7A37"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestAssistant/TestKnowledgeBaseAssistantAssociation/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSampleTestAssistantTestKnowledgeBaseAssistantAssociationECA7C7F2"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestDataIntegration/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSampleTestDataIntegrationF230E19A"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestKnowledgeBase/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSampleTestKnowledgeBaseA685253D"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestKnowledgeBase/TestKnowledgeBaseIntegrationAssociation/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/QconnectSample/TestKnowledgeBase/TestKnowledgeBaseIntegrationAssociation/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectSampleTestKnowledgeBaseTestKnowledgeBaseIntegrationAssociationF54A7E07"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*",
+              "code": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderOnEventHandlerServiceRole68369EC5"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderOnEventHandlerServiceRoleDefaultPolicy9A9050D6"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderOnEventHandlerAF2D488A"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/OnEventHandler/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderOnEventHandlerLogGroupDF377135"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "code": "*",
+              "description": "*",
+              "runtime": "*",
+              "handler": "*",
+              "timeout": "*",
+              "loggingFormat": "JSON",
+              "applicationLogLevelV2": "FATAL",
+              "logGroup": "*",
+              "vpc": "*",
+              "vpcSubnets": "*",
+              "securityGroups": "*",
+              "role": "*",
+              "functionName": "*",
+              "environmentEncryption": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addEnvironment": [
+                "*",
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderframeworkonEventServiceRole506DCE8E"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderframeworkonEventServiceRoleDefaultPolicyB2C6126F"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderframeworkonEventE0D053E0"
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/IntegrationAssociationProvider/Provider/framework-onEvent/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IntegrationAssociationProviderframeworkonEventLogGroupD17F53C4"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Prompt-QUERY_REFORMULATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptQUERYREFORMULATION6294CA19"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/PromptVersion-QUERY_REFORMULATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptVersionQUERYREFORMULATION6A300F75"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Prompt-INTENT_LABELING_GENERATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptINTENTLABELINGGENERATIONB470F746"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/PromptVersion-INTENT_LABELING_GENERATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptVersionINTENTLABELINGGENERATION2F2BCF99"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Prompt-ANSWER_GENERATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptANSWERGENERATIOND0F6F791"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/PromptVersion-ANSWER_GENERATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptVersionANSWERGENERATION5D65E10B"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Agent-ANSWER_RECOMMENDATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPAgentANSWERRECOMMENDATIONDD0CCCFA"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/AgentVersion-ANSWER_RECOMMENDATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPAgentVersionANSWERRECOMMENDATION9D5D1BB5"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Agent-MANUAL_SEARCH/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPAgentMANUALSEARCH6B1688EE"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/AgentVersion-MANUAL_SEARCH/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPAgentVersionMANUALSEARCHC0745733"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Prompt-SELF_SERVICE_ANSWER_GENERATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptSELFSERVICEANSWERGENERATIONEAA4259A"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/PromptVersion-SELF_SERVICE_ANSWER_GENERATION/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptVersionSELFSERVICEANSWERGENERATION9C51C899"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Prompt-SELF_SERVICE_PRE_PROCESSING/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptSELFSERVICEPREPROCESSING5985EFC5"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/PromptVersion-SELF_SERVICE_PRE_PROCESSING/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPPromptVersionSELFSERVICEPREPROCESSING66304871"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/Agent-SELF_SERVICE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPAgentSELFSERVICE0E852EC5"
+          }
+        ],
+        "/TestConnectStack/QconnectPromptSample_ja-JP/AgentVersion-SELF_SERVICE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectPromptSamplejaJPAgentVersionSELFSERVICE8A681BE2"
+          }
+        ],
+        "/TestConnectStack/QconnectModelTable/ModelTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QconnectModelTable2D351789"
+          }
+        ],
+        "/TestConnectStack/CasesSample/TestCasesDomain/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/CasesSample/TestCasesDomain/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CasesSampleTestCasesDomain24F4B40E"
+          }
+        ],
+        "/TestConnectStack/CasesSample/TestCasesDomain/TestCasesDomainAssociation/Resource/Resource": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/CasesSample/TestCasesDomain/TestCasesDomainAssociation/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CasesSampleTestCasesDomainTestCasesDomainAssociationF04DF0D8"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "If you are relying on AWS SDK v2 to be present in the Lambda environment already, please explicitly configure a NodeJS runtime of Node 16 or lower. [ack: @aws-cdk/aws-lambda-nodejs:sdkV2NotInRuntime]"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*",
+              "bundling": {
+                "externalModules": "*"
+              },
+              "code": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*",
+              "bundling": {
+                "externalModules": "*"
+              }
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderOnEventHandlerServiceRole5D21968B"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderOnEventHandlerServiceRoleDefaultPolicy5B816494"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderOnEventHandlerF13DF6C5"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/OnEventHandler/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderOnEventHandlerLogGroup9E57C325"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "code": "*",
+              "description": "*",
+              "runtime": "*",
+              "handler": "*",
+              "timeout": "*",
+              "loggingFormat": "JSON",
+              "applicationLogLevelV2": "FATAL",
+              "logGroup": "*",
+              "vpc": "*",
+              "vpcSubnets": "*",
+              "securityGroups": "*",
+              "role": "*",
+              "functionName": "*",
+              "environmentEncryption": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addEnvironment": [
+                "*",
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderframeworkonEventServiceRole348F6EE3"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderframeworkonEventServiceRoleDefaultPolicy4C4B04BB"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderframeworkonEvent95257ABC"
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ConnectCasesDomainProvider/Provider/framework-onEvent/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ConnectCasesDomainProviderframeworkonEventLogGroup651FE585"
+          }
+        ],
+        "/TestConnectStack/CustomerProfilesSample/TestCustomerProfilesDomain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomerProfilesSampleTestCustomerProfilesDomain32F5EACF"
+          }
+        ],
+        "/TestConnectStack/CustomerProfilesSample/TestCustomerProfilesDomain/TestCustomerProfilesIntegration/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomerProfilesSampleTestCustomerProfilesDomainTestCustomerProfilesIntegration1575DC5F"
+          }
+        ],
+        "/TestConnectStack/CustomerProfilesSample/TestObjectType/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomerProfilesSampleTestObjectTypeAB860882"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/CustomerQueuePrompt": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/CustomerQueuePrompt/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSampleenUSCustomerQueuePrompt7F6861BE"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/ImmediateCustomerQueueFlow/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSampleenUSImmediateCustomerQueueFlow4C5E6D34"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/BeepPrompt": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/BeepPrompt/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSampleenUSBeepPrompt7F340876"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/ImmediateAgentWhisperFlow/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSampleenUSImmediateAgentWhisperFlowF6515579"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_en-US/ImmediateInboundContactFlow/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSampleenUSImmediateInboundContactFlow3275EA56"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*",
+              "code": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "entry": "*",
+              "handler": "*",
+              "runtime": "*",
+              "timeout": "*",
+              "description": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderOnEventHandlerServiceRole28C8E4E1"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderOnEventHandlerServiceRoleDefaultPolicyC4030BB8"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderOnEventHandler19E3898A"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/OnEventHandler/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderOnEventHandlerLogGroup20190997"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "code": "*",
+              "description": "*",
+              "runtime": "*",
+              "handler": "*",
+              "timeout": "*",
+              "loggingFormat": "JSON",
+              "applicationLogLevelV2": "FATAL",
+              "logGroup": "*",
+              "vpc": "*",
+              "vpcSubnets": "*",
+              "securityGroups": "*",
+              "role": "*",
+              "functionName": "*",
+              "environmentEncryption": "*"
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addEnvironment": [
+                "*",
+                "*"
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/ServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "assumedBy": {
+                "principalAccount": "*",
+                "assumeRoleAction": "*"
+              },
+              "managedPolicies": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachInlinePolicy": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addToPrincipalPolicy": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/ServiceRole/ImportServiceRole": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderframeworkonEventServiceRole1FCD1915"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "attachToRole": [
+                "*"
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": {
+              "addStatements": [
+                {}
+              ]
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderframeworkonEventServiceRoleDefaultPolicy882B9C3A"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderframeworkonEvent06719699"
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/LogGroup": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "logGroupName": "*"
+            }
+          }
+        ],
+        "/TestConnectStack/ImportedPromptProvider/Provider/framework-onEvent/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImportedPromptProviderframeworkonEventLogGroup09C7A0DD"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/CustomerQueuePrompt": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/CustomerQueuePrompt/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSamplejaJPCustomerQueuePromptAC354456"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/ImmediateCustomerQueueFlow/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSamplejaJPImmediateCustomerQueueFlow52A22BED"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/BeepPrompt": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          },
+          {
+            "type": "aws:cdk:analytics:method",
+            "data": "*"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/BeepPrompt/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSamplejaJPBeepPromptE0AE62B8"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/ImmediateAgentWhisperFlow/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSamplejaJPImmediateAgentWhisperFlowA1859358"
+          }
+        ],
+        "/TestConnectStack/ImmediateInboundSample_ja-JP/ImmediateInboundContactFlow/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ImmediateInboundSamplejaJPImmediateInboundContactFlowAF7EF690"
+          }
+        ],
+        "/TestConnectStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/TestConnectStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "TestConnectStack"
+    },
+    "TestDefaultTestDeployAssert12909640.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "TestDefaultTestDeployAssert12909640.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "TestDefaultTestDeployAssert12909640": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "TestDefaultTestDeployAssert12909640.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/21fbb51d7b23f6a6c262b46a9caee79d744a3ac019fd45422d988b96d44b2a22.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "TestDefaultTestDeployAssert12909640.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "TestDefaultTestDeployAssert12909640.assets"
+      ],
+      "metadata": {
+        "/Test/DefaultTest/DeployAssert/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Test/DefaultTest/DeployAssert/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Test/DefaultTest/DeployAssert"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "aws-cdk-lib/feature-flag-report": {
+      "type": "cdk:feature-flag-report",
+      "properties": {
+        "module": "aws-cdk-lib",
+        "flags": {
+          "@aws-cdk/aws-signer:signingProfileNamePassedToCfn": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Pass signingProfileName to CfnSigningProfile"
+          },
+          "@aws-cdk/core:newStyleStackSynthesis": {
+            "recommendedValue": true,
+            "explanation": "Switch to new stack synthesis method which enables CI/CD",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/core:stackRelativeExports": {
+            "recommendedValue": true,
+            "explanation": "Name exports based on the construct paths relative to the stack, rather than the global construct path",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-ecs-patterns:secGroupsDisablesImplicitOpenListener": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Disable implicit openListener when custom security groups are provided"
+          },
+          "@aws-cdk/aws-rds:lowercaseDbIdentifier": {
+            "recommendedValue": true,
+            "explanation": "Force lowercasing of RDS Cluster names in CDK",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": {
+            "recommendedValue": true,
+            "explanation": "Allow adding/removing multiple UsagePlanKeys independently",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-lambda:recognizeVersionProps": {
+            "recommendedValue": true,
+            "explanation": "Enable this feature flag to opt in to the updated logical id calculation for Lambda Version created using the  `fn.currentVersion`.",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-lambda:recognizeLayerVersion": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable this feature flag to opt in to the updated logical id calculation for Lambda Version created using the `fn.currentVersion`."
+          },
+          "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": {
+            "recommendedValue": true,
+            "explanation": "Enable this feature flag to have cloudfront distributions use the security policy TLSv1.2_2021 by default.",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/core:checkSecretUsage": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable this flag to make it impossible to accidentally use SecretValues in unsafe locations"
+          },
+          "@aws-cdk/core:target-partitions": {
+            "recommendedValue": [
+              "aws",
+              "aws-cn"
+            ],
+            "explanation": "What regions to include in lookup tables of environment agnostic stacks"
+          },
+          "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "ECS extensions will automatically add an `awslogs` driver if no logging is specified"
+          },
+          "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable this feature flag to have Launch Templates generated by the `InstanceRequireImdsv2Aspect` use unique names."
+          },
+          "@aws-cdk/aws-ecs:arnFormatIncludesClusterName": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "ARN format used by ECS. In the new ARN format, the cluster name is part of the resource ID."
+          },
+          "@aws-cdk/aws-iam:minimizePolicies": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Minimize IAM policies by combining Statements"
+          },
+          "@aws-cdk/core:validateSnapshotRemovalPolicy": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Error on snapshot removal policies on resources that do not support it."
+          },
+          "@aws-cdk/aws-codepipeline:crossAccountKeyAliasStackSafeResourceName": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Generate key aliases that include the stack name"
+          },
+          "@aws-cdk/aws-s3:createDefaultLoggingPolicy": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable this feature flag to create an S3 bucket policy by default in cases where an AWS service would automatically create the Policy if one does not exist."
+          },
+          "@aws-cdk/aws-sns-subscriptions:restrictSqsDescryption": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Restrict KMS key policy for encrypted Queues a bit more"
+          },
+          "@aws-cdk/aws-apigateway:disableCloudWatchRole": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Make default CloudWatch Role behavior safe for multiple API Gateways in one environment"
+          },
+          "@aws-cdk/core:enablePartitionLiterals": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Make ARNs concrete if AWS partition is known"
+          },
+          "@aws-cdk/aws-events:eventsTargetQueueSameAccount": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Event Rules may only push to encrypted SQS queues in the same account"
+          },
+          "@aws-cdk/aws-ecs:disableExplicitDeploymentControllerForCircuitBreaker": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Avoid setting the \"ECS\" deployment controller when adding a circuit breaker"
+          },
+          "@aws-cdk/aws-iam:importedRoleStackSafeDefaultPolicyName": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable this feature to create default policy names for imported roles that depend on the stack the role is in."
+          },
+          "@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Use S3 Bucket Policy instead of ACLs for Server Access Logging"
+          },
+          "@aws-cdk/aws-route53-patters:useCertificate": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Use the official `Certificate` resource instead of `DnsValidatedCertificate`"
+          },
+          "@aws-cdk/customresources:installLatestAwsSdkDefault": {
+            "userValue": false,
+            "recommendedValue": false,
+            "explanation": "Whether to install the latest SDK by default in AwsCustomResource"
+          },
+          "@aws-cdk/aws-rds:databaseProxyUniqueResourceName": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Use unique resource name for Database Proxy"
+          },
+          "@aws-cdk/aws-codedeploy:removeAlarmsFromDeploymentGroup": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Remove CloudWatch alarms from deployment group"
+          },
+          "@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Include authorizer configuration in the calculation of the API deployment logical ID."
+          },
+          "@aws-cdk/aws-ec2:launchTemplateDefaultUserData": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Define user data for a launch template by default when a machine image is provided."
+          },
+          "@aws-cdk/aws-secretsmanager:useAttachedSecretResourcePolicyForSecretTargetAttachments": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "SecretTargetAttachments uses the ResourcePolicy of the attached Secret."
+          },
+          "@aws-cdk/aws-redshift:columnId": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Whether to use an ID to track Redshift column changes"
+          },
+          "@aws-cdk/aws-stepfunctions-tasks:enableEmrServicePolicyV2": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable AmazonEMRServicePolicy_v2 managed policies"
+          },
+          "@aws-cdk/aws-ec2:restrictDefaultSecurityGroup": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Restrict access to the VPC default security group"
+          },
+          "@aws-cdk/aws-apigateway:requestValidatorUniqueId": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Generate a unique id for each RequestValidator added to a method"
+          },
+          "@aws-cdk/aws-kms:aliasNameRef": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "KMS Alias name and keyArn will have implicit reference to KMS Key"
+          },
+          "@aws-cdk/aws-kms:applyImportedAliasPermissionsToPrincipal": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enable grant methods on Aliases imported by name to use kms:ResourceAliases condition"
+          },
+          "@aws-cdk/aws-autoscaling:generateLaunchTemplateInsteadOfLaunchConfig": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Generate a launch template when creating an AutoScalingGroup"
+          },
+          "@aws-cdk/core:includePrefixInUniqueNameGeneration": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Include the stack prefix in the stack name generation process"
+          },
+          "@aws-cdk/aws-efs:denyAnonymousAccess": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "EFS denies anonymous clients accesses"
+          },
+          "@aws-cdk/aws-opensearchservice:enableOpensearchMultiAzWithStandby": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enables support for Multi-AZ with Standby deployment for opensearch domains"
+          },
+          "@aws-cdk/aws-lambda-nodejs:useLatestRuntimeVersion": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enables aws-lambda-nodejs.Function to use the latest available NodeJs runtime as the default"
+          },
+          "@aws-cdk/aws-efs:mountTargetOrderInsensitiveLogicalId": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, mount targets will have a stable logicalId that is linked to the associated subnet."
+          },
+          "@aws-cdk/aws-rds:auroraClusterChangeScopeOfInstanceParameterGroupWithEachParameters": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, a scope of InstanceParameterGroup for AuroraClusterInstance with each parameters will change."
+          },
+          "@aws-cdk/aws-appsync:useArnForSourceApiAssociationIdentifier": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, will always use the arn for identifiers for CfnSourceApiAssociation in the GraphqlApi construct rather than id."
+          },
+          "@aws-cdk/aws-rds:preventRenderingDeprecatedCredentials": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, creating an RDS database cluster from a snapshot will only render credentials for snapshot credentials."
+          },
+          "@aws-cdk/aws-codepipeline-actions:useNewDefaultBranchForCodeCommitSource": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the CodeCommit source action is using the default branch name 'main'."
+          },
+          "@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the logical ID of a Lambda permission for a Lambda action includes an alarm ID."
+          },
+          "@aws-cdk/aws-codepipeline:crossAccountKeysDefaultValueToFalse": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enables Pipeline to set the default value for crossAccountKeys to false."
+          },
+          "@aws-cdk/aws-codepipeline:defaultPipelineTypeToV2": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Enables Pipeline to set the default pipeline type to V2."
+          },
+          "@aws-cdk/aws-kms:reduceCrossAccountRegionPolicyScope": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, IAM Policy created from KMS key grant will reduce the resource scope to this key only."
+          },
+          "@aws-cdk/pipelines:reduceAssetRoleTrustScope": {
+            "recommendedValue": true,
+            "explanation": "Remove the root account principal from PipelineAssetsFileRole trust policy",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-eks:nodegroupNameAttribute": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, nodegroupName attribute of the provisioned EKS NodeGroup will not have the cluster name prefix."
+          },
+          "@aws-cdk/aws-ec2:ebsDefaultGp3Volume": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the default volume type of the EBS volume will be GP3"
+          },
+          "@aws-cdk/aws-ecs:removeDefaultDeploymentAlarm": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, remove default deployment alarm settings"
+          },
+          "@aws-cdk/custom-resources:logApiResponseDataPropertyTrueDefault": {
+            "userValue": false,
+            "recommendedValue": false,
+            "explanation": "When enabled, the custom resource used for `AwsCustomResource` will configure the `logApiResponseData` property as true by default"
+          },
+          "@aws-cdk/aws-s3:keepNotificationInImportedBucket": {
+            "userValue": false,
+            "recommendedValue": false,
+            "explanation": "When enabled, Adding notifications to a bucket in the current stack will not remove notification from imported stack."
+          },
+          "@aws-cdk/aws-stepfunctions-tasks:useNewS3UriParametersForBedrockInvokeModelTask": {
+            "recommendedValue": true,
+            "explanation": "When enabled, use new props for S3 URI field in task definition of state machine for bedrock invoke model.",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/core:explicitStackTags": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, stack tags need to be assigned explicitly on a Stack."
+          },
+          "@aws-cdk/aws-ecs:reduceEc2FargateCloudWatchPermissions": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, we will only grant the necessary permissions when users specify cloudwatch log group through logConfiguration"
+          },
+          "@aws-cdk/aws-dynamodb:resourcePolicyPerReplica": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled will allow you to specify a resource policy per replica, and not copy the source table policy to all replicas"
+          },
+          "@aws-cdk/aws-ec2:ec2SumTImeoutEnabled": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, initOptions.timeout and resourceSignalTimeout values will be summed together."
+          },
+          "@aws-cdk/aws-appsync:appSyncGraphQLAPIScopeLambdaPermission": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, a Lambda authorizer Permission created when using GraphqlApi will be properly scoped with a SourceArn."
+          },
+          "@aws-cdk/aws-rds:setCorrectValueForDatabaseInstanceReadReplicaInstanceResourceId": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the value of property `instanceResourceId` in construct `DatabaseInstanceReadReplica` will be set to the correct value which is `DbiResourceId` instead of currently `DbInstanceArn`"
+          },
+          "@aws-cdk/core:cfnIncludeRejectComplexResourceUpdateCreatePolicyIntrinsics": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, CFN templates added with `cfn-include` will error if the template contains Resource Update or Create policies with CFN Intrinsics that include non-primitive values."
+          },
+          "@aws-cdk/aws-lambda-nodejs:sdkV3ExcludeSmithyPackages": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, both `@aws-sdk` and `@smithy` packages will be excluded from the Lambda Node.js 18.x runtime to prevent version mismatches in bundled applications."
+          },
+          "@aws-cdk/aws-stepfunctions-tasks:fixRunEcsTaskPolicy": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the resource of IAM Run Ecs policy generated by SFN EcsRunTask will reference the definition, instead of constructing ARN."
+          },
+          "@aws-cdk/aws-ec2:bastionHostUseAmazonLinux2023ByDefault": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the BastionHost construct will use the latest Amazon Linux 2023 AMI, instead of Amazon Linux 2."
+          },
+          "@aws-cdk/core:aspectStabilization": {
+            "recommendedValue": true,
+            "explanation": "When enabled, a stabilization loop will be run when invoking Aspects during synthesis.",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-route53-targets:userPoolDomainNameMethodWithoutCustomResource": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, use a new method for DNS Name of user pool domain target without creating a custom resource."
+          },
+          "@aws-cdk/aws-elasticloadbalancingV2:albDualstackWithoutPublicIpv4SecurityGroupRulesDefault": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the default security group ingress rules will allow IPv6 ingress from anywhere"
+          },
+          "@aws-cdk/aws-iam:oidcRejectUnauthorizedConnections": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the default behaviour of OIDC provider will reject unauthorized connections"
+          },
+          "@aws-cdk/core:enableAdditionalMetadataCollection": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, CDK will expand the scope of usage data collected to better inform CDK development and improve communication for security concerns and emerging issues."
+          },
+          "@aws-cdk/aws-lambda:createNewPoliciesWithAddToRolePolicy": {
+            "userValue": false,
+            "recommendedValue": false,
+            "explanation": "[Deprecated] When enabled, Lambda will create new inline policies with AddToRolePolicy instead of adding to the Default Policy Statement"
+          },
+          "@aws-cdk/aws-s3:setUniqueReplicationRoleName": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, CDK will automatically generate a unique role name that is used for s3 object replication."
+          },
+          "@aws-cdk/pipelines:reduceStageRoleTrustScope": {
+            "recommendedValue": true,
+            "explanation": "Remove the root account principal from Stage addActions trust policy",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-events:requireEventBusPolicySid": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, grantPutEventsTo() will use resource policies with Statement IDs for service principals."
+          },
+          "@aws-cdk/core:aspectPrioritiesMutating": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When set to true, Aspects added by the construct library on your behalf will be given a priority of MUTATING."
+          },
+          "@aws-cdk/aws-dynamodb:retainTableReplica": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, table replica will be default to the removal policy of source table unless specified otherwise."
+          },
+          "@aws-cdk/cognito:logUserPoolClientSecretValue": {
+            "recommendedValue": false,
+            "explanation": "When disabled, the value of the user pool client secret will not be logged in the custom resource lambda function logs."
+          },
+          "@aws-cdk/pipelines:reduceCrossAccountActionRoleTrustScope": {
+            "recommendedValue": true,
+            "explanation": "When enabled, scopes down the trust policy for the cross-account action role",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-stepfunctions:useDistributedMapResultWriterV2": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the resultWriterV2 property of DistributedMap will be used insted of resultWriter"
+          },
+          "@aws-cdk/s3-notifications:addS3TrustKeyPolicyForSnsSubscriptions": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "Add an S3 trust policy to a KMS key resource policy for SNS subscriptions."
+          },
+          "@aws-cdk/aws-ec2:requirePrivateSubnetsForEgressOnlyInternetGateway": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, the EgressOnlyGateway resource is only created if private subnets are defined in the dual-stack VPC."
+          },
+          "@aws-cdk/aws-ec2-alpha:useResourceIdForVpcV2Migration": {
+            "recommendedValue": false,
+            "explanation": "When enabled, use resource IDs for VPC V2 migration"
+          },
+          "@aws-cdk/aws-s3:publicAccessBlockedByDefault": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, setting any combination of options for BlockPublicAccess will automatically set true for any options not defined."
+          },
+          "@aws-cdk/aws-lambda:useCdkManagedLogGroup": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, CDK creates and manages loggroup for the lambda function"
+          },
+          "@aws-cdk/aws-elasticloadbalancingv2:networkLoadBalancerWithSecurityGroupByDefault": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, Network Load Balancer will be created with a security group by default."
+          },
+          "@aws-cdk/aws-stepfunctions-tasks:httpInvokeDynamicJsonPathEndpoint": {
+            "recommendedValue": true,
+            "explanation": "When enabled, allows using a dynamic apiEndpoint with JSONPath format in HttpInvoke tasks.",
+            "unconfiguredBehavesLike": {
+              "v2": true
+            }
+          },
+          "@aws-cdk/aws-ecs-patterns:uniqueTargetGroupId": {
+            "userValue": true,
+            "recommendedValue": true,
+            "explanation": "When enabled, ECS patterns will generate unique target group IDs to prevent conflicts during load balancer replacement"
+          },
+          "@aws-cdk/aws-route53-patterns:useDistribution": {
+            "recommendedValue": true,
+            "explanation": "Use the `Distribution` resource instead of `CloudFrontWebDistribution`"
+          }
+        }
+      }
+    }
+  },
+  "minimumCliVersion": "2.1101.0"
+}
