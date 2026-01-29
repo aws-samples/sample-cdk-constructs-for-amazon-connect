@@ -8,9 +8,25 @@
 
 This library implements of the L2 CDK constructs for Amazon Connect and the related services including Amazon Q in Connect and Amazon AppIntegrations.
 
+## Install
+
+This library is not added to NPM registries. You can install it by specifying the binary release URL as follows:
+
+```bash
+npm install https://github.com/aws-samples/sample-cdk-constructs-for-amazon-connect/releases/download/vX.X.X/cdk-constructs-for-amazon-connect@X.X.X.jsii.tgz
+```
+
+Please replace `X.X.X` with the latest version number.
+
 ## Usage
 
+For example, you can create an Amazon Connect instance:
+
 ```typescript
+import { connect } from 'cdk-constructs-for-amazon-connect';
+
+// ...
+
 const instance = new connect.Instance(this, 'TestConnectInstance', {
   attributes: {
     inboundCalls: true,
@@ -22,7 +38,7 @@ const instance = new connect.Instance(this, 'TestConnectInstance', {
 });
 ```
 
-You can create other resources in Amazon Connect. See the test code for more information.
+You can create other resources in Amazon Connect. See the test code in [test/](./test/) for more information.
 
 ## Reference
 
