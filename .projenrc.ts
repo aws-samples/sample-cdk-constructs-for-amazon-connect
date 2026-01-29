@@ -68,6 +68,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   license: 'MIT-0',
   copyrightOwner: 'Amazon.com, Inc.',
   gitignore: ['/docs'],
+  npmIgnoreOptions: {
+    ignorePatterns: ['/.kiro', '/.gitlab-ci.yml'],
+  },
 });
 
 project.addScripts({
