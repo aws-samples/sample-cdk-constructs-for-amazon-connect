@@ -7,7 +7,19 @@ import {
   CloudFormationCustomResourceDeleteEvent,
 } from 'aws-lambda';
 
-const casesClient = new ConnectCasesClient();
+// Use adaptive retries so parallel Connect Cases API calls tolerate throttling
+// (TooManyRequestsException) via client-side backoff.
+const casesClient = new ConnectCasesClient({ maxAttempts: 10, retryMode: 'adaptive' });
+
+/**
+ * Returns true when the error indicates the target resource no longer exists,
+ * so that Delete operations can be treated as idempotent (success).
+ */
+function isResourceNotFoundError(error: unknown): boolean {
+  const name = (error as { name?: string })?.name ?? '';
+  const message = (error as { message?: string })?.message ?? '';
+  return name === 'ResourceNotFoundException' || /not found/i.test(message);
+}
 
 export async function onEvent(event: CdkCustomResourceEvent): Promise<CdkCustomResourceResponse> {
   console.log('event = %o', event);
@@ -56,13 +68,22 @@ async function getDomainInfo(event: CloudFormationCustomResourceUpdateEvent): Pr
 async function deleteDomain(event: CloudFormationCustomResourceDeleteEvent): Promise<CdkCustomResourceResponse> {
   const domainId = event.PhysicalResourceId;
 
-  const response = await casesClient.send(
-    new DeleteDomainCommand({
-      domainId: domainId,
-    }),
-  );
-
-  console.log(`connectcases.deleteDomain() => %o`, response);
+  try {
+    const response = await casesClient.send(
+      new DeleteDomainCommand({
+        domainId: domainId,
+      }),
+    );
+    console.log(`connectcases.deleteDomain() => %o`, response);
+  } catch (error) {
+    // Idempotent delete: if the domain is already gone, treat as success
+    // so that stack rollback/deletion can complete.
+    if (isResourceNotFoundError(error)) {
+      console.log('Cases domain already absent, treating delete as success: %o', error);
+    } else {
+      throw error;
+    }
+  }
 
   return {
     PhysicalResourceId: domainId,

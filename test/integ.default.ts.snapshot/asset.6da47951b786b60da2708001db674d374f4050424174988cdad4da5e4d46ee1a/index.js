@@ -23935,7 +23935,12 @@ __export(domain_onEvent_exports, {
 });
 module.exports = __toCommonJS(domain_onEvent_exports);
 var import_client_connectcases = __toESM(require_dist_cjs54());
-var casesClient = new import_client_connectcases.ConnectCasesClient();
+var casesClient = new import_client_connectcases.ConnectCasesClient({ maxAttempts: 10, retryMode: "adaptive" });
+function isResourceNotFoundError(error2) {
+  const name = error2?.name ?? "";
+  const message = error2?.message ?? "";
+  return name === "ResourceNotFoundException" || /not found/i.test(message);
+}
 async function onEvent(event) {
   console.log("event = %o", event);
   if (event.RequestType === "Create") {
@@ -23973,12 +23978,20 @@ async function getDomainInfo(event) {
 }
 async function deleteDomain(event) {
   const domainId = event.PhysicalResourceId;
-  const response = await casesClient.send(
-    new import_client_connectcases.DeleteDomainCommand({
-      domainId
-    })
-  );
-  console.log(`connectcases.deleteDomain() => %o`, response);
+  try {
+    const response = await casesClient.send(
+      new import_client_connectcases.DeleteDomainCommand({
+        domainId
+      })
+    );
+    console.log(`connectcases.deleteDomain() => %o`, response);
+  } catch (error2) {
+    if (isResourceNotFoundError(error2)) {
+      console.log("Cases domain already absent, treating delete as success: %o", error2);
+    } else {
+      throw error2;
+    }
+  }
   return {
     PhysicalResourceId: domainId,
     Data: {}

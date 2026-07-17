@@ -12,7 +12,9 @@ import {
   CloudFormationCustomResourceDeleteEvent,
 } from 'aws-lambda';
 
-const qconnectClient = new QConnectClient();
+// Use adaptive retries so parallel QConnect API calls tolerate throttling
+// (TooManyRequestsException) via client-side backoff.
+const qconnectClient = new QConnectClient({ maxAttempts: 10, retryMode: 'adaptive' });
 
 export async function onEvent(event: CdkCustomResourceEvent): Promise<CdkCustomResourceResponse | undefined> {
   console.log('event = %o', event);

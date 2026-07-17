@@ -22,7 +22,7 @@ export async function onEvent(event: CdkCustomResourceEvent): Promise<CdkCustomR
 async function getQueueArn(
   event: CloudFormationCustomResourceCreateEvent | CloudFormationCustomResourceUpdateEvent,
 ): Promise<CdkCustomResourceResponse> {
-  const connect = new Connect();
+  const connect = new Connect({ maxAttempts: 10, retryMode: 'adaptive' });
   const ret = await connect.listQueues({
     InstanceId: event.ResourceProperties.Parameters.InstanceId,
   });

@@ -13,7 +13,9 @@ import {
   CloudFormationCustomResourceDeleteEvent,
 } from 'aws-lambda';
 
-const connectClient = new ConnectClient();
+// Use adaptive retries so parallel Connect API calls tolerate throttling
+// (TooManyRequestsException) via client-side backoff.
+const connectClient = new ConnectClient({ maxAttempts: 10, retryMode: 'adaptive' });
 
 export async function onEvent(event: CdkCustomResourceEvent): Promise<CdkCustomResourceResponse | undefined> {
   console.log('event = %o', event);

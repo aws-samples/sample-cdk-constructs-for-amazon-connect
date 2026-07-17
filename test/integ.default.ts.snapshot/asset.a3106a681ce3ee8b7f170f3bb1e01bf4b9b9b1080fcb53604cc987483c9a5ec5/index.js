@@ -36,7 +36,7 @@ async function onEvent(event) {
   return void 0;
 }
 async function getPromptArn(event) {
-  const connect = new import_client_connect.Connect();
+  const connect = new import_client_connect.Connect({ maxAttempts: 10, retryMode: "adaptive" });
   const ret = await connect.listPrompts({
     InstanceId: event.ResourceProperties.Parameters.InstanceId
   });

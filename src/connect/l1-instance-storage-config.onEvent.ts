@@ -15,7 +15,20 @@ import {
   CloudFormationCustomResourceDeleteEvent,
 } from 'aws-lambda';
 
-const connectClient = new ConnectClient();
+// Use adaptive retries with a higher attempt count so that bursts of parallel
+// Connect API calls (e.g. many storage configs created at once) tolerate
+// TooManyRequestsException (throttling) via client-side backoff.
+const connectClient = new ConnectClient({ maxAttempts: 10, retryMode: 'adaptive' });
+
+/**
+ * Returns true when the error indicates the target resource no longer exists,
+ * so that Delete operations can be treated as idempotent (success).
+ */
+function isResourceNotFoundError(error: unknown): boolean {
+  const name = (error as { name?: string })?.name ?? '';
+  const message = (error as { message?: string })?.message ?? '';
+  return name === 'ResourceNotFoundException' || /not found/i.test(message);
+}
 
 export async function onEvent(event: CdkCustomResourceEvent): Promise<CdkCustomResourceResponse | undefined> {
   console.log('event = %o', event);
@@ -76,13 +89,23 @@ async function disassociateInstanceStorageConfig(
   const cfnParams = event.ResourceProperties.Parameters as connect.CfnInstanceStorageConfigProps;
   const sdkParams = convertCfnParamsToSdkParams(cfnParams);
 
-  const ret = await connectClient.send(
-    new DisassociateInstanceStorageConfigCommand({
-      ...sdkParams,
-      AssociationId: associationId,
-    }),
-  );
-  console.log(`connect.disassociateInstanceStorageConfig() => %o`, ret);
+  try {
+    const ret = await connectClient.send(
+      new DisassociateInstanceStorageConfigCommand({
+        ...sdkParams,
+        AssociationId: associationId,
+      }),
+    );
+    console.log(`connect.disassociateInstanceStorageConfig() => %o`, ret);
+  } catch (error) {
+    // Idempotent delete: if the association/config is already gone, treat as success
+    // so that stack rollback/deletion can complete.
+    if (isResourceNotFoundError(error)) {
+      console.log('Storage config association already absent, treating delete as success: %o', error);
+    } else {
+      throw error;
+    }
+  }
 
   return {
     Data: {

@@ -55,7 +55,10 @@ export class TestConnectStack extends Stack {
         }),
     );
 
-    new CasesSample(this, 'CasesSample', { instance });
+    new CasesSample(this, 'CasesSample', {
+      instance,
+      dependency: qconnectSample.lastIntegrationAssociation,
+    });
     new CustomerProfilesSample(this, 'CustomerProfilesSample', { instance, key });
 
     [
@@ -113,13 +116,22 @@ export class TestConnectStack extends Stack {
       connect.ResourceType.SCREEN_RECORDINGS,
       connect.ResourceType.EMAIL_MESSAGES,
     ];
+    // Create the storage configs sequentially rather than in parallel.
+    // Each config is backed by a custom resource Lambda that calls the Connect API;
+    // creating all of them at once triggers TooManyRequestsException (throttling).
+    // Chaining CloudFormation dependencies forces one-at-a-time creation.
+    let previous: ReturnType<typeof instance.addS3StorageConfig> | undefined;
     resourceTypes.forEach((resourceType) => {
-      instance.addS3StorageConfig(`Config-${resourceType}`, {
+      const config = instance.addS3StorageConfig(`Config-${resourceType}`, {
         resourceType,
         bucket: recordingBucket,
         bucketPrefix: `connect/${resourceType}`,
         key,
       });
+      if (previous) {
+        config.node.addDependency(previous);
+      }
+      previous = config;
     });
   }
 }
@@ -214,6 +226,12 @@ interface QconnectSampleProps {
 
 class QconnectSample extends Construct {
   public readonly assistant: qconnect.Assistant;
+  /**
+   * The last Connect integration association created by this construct.
+   * Exposed so that other integration associations can be chained after it,
+   * serializing the Connect CreateIntegrationAssociation calls to avoid throttling.
+   */
+  public readonly lastIntegrationAssociation: Construct;
 
   constructor(scope: Construct, id: string, props: QconnectSampleProps) {
     super(scope, id);
@@ -221,7 +239,9 @@ class QconnectSample extends Construct {
     this.assistant = new qconnect.Assistant(this, 'TestAssistant', {
       name: 'TestAssistant',
     });
-    this.assistant.addIntegrationAssociation('TestAssistantAssociation', { instance: props.instance });
+    const assistantAssociation = this.assistant.addIntegrationAssociation('TestAssistantAssociation', {
+      instance: props.instance,
+    });
 
     const INTEGRATION_NAME = 'TestKnowledgeBase';
     const dataIntegration = new appintegrations.DataIntegration(this, 'TestDataIntegration', {
@@ -238,7 +258,15 @@ class QconnectSample extends Construct {
       encryptionKey: props.key,
       dataIntegration,
     });
-    knowledgeBase.addIntegrationAssociation('TestKnowledgeBaseIntegrationAssociation', { instance: props.instance });
+    const knowledgeBaseAssociation = knowledgeBase.addIntegrationAssociation(
+      'TestKnowledgeBaseIntegrationAssociation',
+      { instance: props.instance },
+    );
+    // Serialize the integration associations (each is a custom resource calling the
+    // Connect API) to avoid TooManyRequestsException from parallel creation.
+    knowledgeBaseAssociation.node.addDependency(assistantAssociation);
+    this.lastIntegrationAssociation = knowledgeBaseAssociation;
+
     this.assistant.addKnowledgeBaseAssociation('TestKnowledgeBaseAssistantAssociation', { knowledgeBase });
   }
 }
@@ -377,13 +405,17 @@ class QconnectModelTable extends Construct {
           [QconnectModel.NOVA_LITE]: 'us.amazon.nova-lite-v1:0',
           [QconnectModel.NOVA_PRO]: 'us.amazon.nova-pro-v1:0',
           [QconnectModel.CLAUDE_HAIKU]: 'us.anthropic.claude-3-haiku-20240307-v1:0',
-          [QconnectModel.CLAUDE_SONNET]: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+          // Note: claude-3-7-sonnet / claude-3-5-haiku are no longer supported by
+          //       Q in Connect in the us regions; Claude Sonnet 4 is currently supported.
+          [QconnectModel.CLAUDE_SONNET]: 'us.anthropic.claude-sonnet-4-20250514-v1:0',
         },
         'us-west-2': {
           [QconnectModel.NOVA_LITE]: 'us.amazon.nova-lite-v1:0',
           [QconnectModel.NOVA_PRO]: 'us.amazon.nova-pro-v1:0',
           [QconnectModel.CLAUDE_HAIKU]: 'us.anthropic.claude-3-haiku-20240307-v1:0',
-          [QconnectModel.CLAUDE_SONNET]: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+          // Note: claude-3-7-sonnet / claude-3-5-haiku are no longer supported by
+          //       Q in Connect in the us regions; Claude Sonnet 4 is currently supported.
+          [QconnectModel.CLAUDE_SONNET]: 'us.anthropic.claude-sonnet-4-20250514-v1:0',
         },
         'ap-northeast-1': {
           [QconnectModel.NOVA_LITE]: 'apac.amazon.nova-lite-v1:0',
@@ -398,6 +430,11 @@ class QconnectModelTable extends Construct {
 
 interface CasesSampleProps {
   readonly instance: connect.Instance;
+  /**
+   * Optional dependency to chain this construct's integration association after,
+   * serializing Connect CreateIntegrationAssociation calls to avoid throttling.
+   */
+  readonly dependency?: Construct;
 }
 
 class CasesSample extends Construct {
@@ -407,7 +444,12 @@ class CasesSample extends Construct {
     const casesDomain = new connect_cases.Domain(this, 'TestCasesDomain', {
       name: 'TestCasesDomain',
     });
-    casesDomain.addIntegrationAssociation('TestCasesDomainAssociation', { instance: props.instance });
+    const association = casesDomain.addIntegrationAssociation('TestCasesDomainAssociation', {
+      instance: props.instance,
+    });
+    if (props.dependency) {
+      association.node.addDependency(props.dependency);
+    }
   }
 }
 

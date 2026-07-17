@@ -24,7 +24,12 @@ __export(l1_instance_storage_config_onEvent_exports, {
 });
 module.exports = __toCommonJS(l1_instance_storage_config_onEvent_exports);
 var import_client_connect = require("@aws-sdk/client-connect");
-var connectClient = new import_client_connect.ConnectClient();
+var connectClient = new import_client_connect.ConnectClient({ maxAttempts: 10, retryMode: "adaptive" });
+function isResourceNotFoundError(error) {
+  const name = error?.name ?? "";
+  const message = error?.message ?? "";
+  return name === "ResourceNotFoundException" || /not found/i.test(message);
+}
 async function onEvent(event) {
   console.log("event = %o", event);
   if (event.RequestType === "Create") {
@@ -70,13 +75,21 @@ async function disassociateInstanceStorageConfig(event) {
   const associationId = event.PhysicalResourceId;
   const cfnParams = event.ResourceProperties.Parameters;
   const sdkParams = convertCfnParamsToSdkParams(cfnParams);
-  const ret = await connectClient.send(
-    new import_client_connect.DisassociateInstanceStorageConfigCommand({
-      ...sdkParams,
-      AssociationId: associationId
-    })
-  );
-  console.log(`connect.disassociateInstanceStorageConfig() => %o`, ret);
+  try {
+    const ret = await connectClient.send(
+      new import_client_connect.DisassociateInstanceStorageConfigCommand({
+        ...sdkParams,
+        AssociationId: associationId
+      })
+    );
+    console.log(`connect.disassociateInstanceStorageConfig() => %o`, ret);
+  } catch (error) {
+    if (isResourceNotFoundError(error)) {
+      console.log("Storage config association already absent, treating delete as success: %o", error);
+    } else {
+      throw error;
+    }
+  }
   return {
     Data: {
       AssociationId: associationId

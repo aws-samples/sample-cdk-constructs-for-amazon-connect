@@ -24,7 +24,7 @@ __export(l1_integration_association_onEvent_exports, {
 });
 module.exports = __toCommonJS(l1_integration_association_onEvent_exports);
 var import_client_connect = require("@aws-sdk/client-connect");
-var connectClient = new import_client_connect.ConnectClient();
+var connectClient = new import_client_connect.ConnectClient({ maxAttempts: 10, retryMode: "adaptive" });
 async function onEvent(event) {
   console.log("event = %o", event);
   if (event.RequestType === "Create") {

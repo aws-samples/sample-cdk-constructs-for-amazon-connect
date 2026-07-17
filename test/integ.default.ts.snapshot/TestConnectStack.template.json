@@ -138,6 +138,7 @@
     "ConnectRecordingBucketPolicy426060E1",
     "ConnectRecordingBucketD32AA64B",
     "Key961B73FD",
+    "TestConnectInstanceConfigCALLRECORDINGS0770A7D0",
     "TestConnectInstance4A99B01E"
    ]
   },
@@ -173,6 +174,7 @@
     "ConnectRecordingBucketPolicy426060E1",
     "ConnectRecordingBucketD32AA64B",
     "Key961B73FD",
+    "TestConnectInstanceConfigCHATTRANSCRIPTSC33D1056",
     "TestConnectInstance4A99B01E"
    ]
   },
@@ -224,6 +226,7 @@
     "InstanceStorageConfigProviderframeworkonEventServiceRoleDefaultPolicy1C78B94B",
     "InstanceStorageConfigProviderframeworkonEventServiceRole9EA1F8D0",
     "Key961B73FD",
+    "TestConnectInstanceConfigSCHEDULEDREPORTSAB53D8B8",
     "TestConnectInstance4A99B01E"
    ],
    "UpdateReplacePolicy": "Delete",
@@ -277,6 +280,7 @@
     "InstanceStorageConfigProviderframeworkonEventServiceRoleDefaultPolicy1C78B94B",
     "InstanceStorageConfigProviderframeworkonEventServiceRole9EA1F8D0",
     "Key961B73FD",
+    "TestConnectInstanceConfigATTACHMENTS2239130F",
     "TestConnectInstance4A99B01E"
    ],
    "UpdateReplacePolicy": "Delete",
@@ -330,6 +334,7 @@
     "InstanceStorageConfigProviderframeworkonEventServiceRoleDefaultPolicy1C78B94B",
     "InstanceStorageConfigProviderframeworkonEventServiceRole9EA1F8D0",
     "Key961B73FD",
+    "TestConnectInstanceConfigCONTACTEVALUATIONS3DDA3CF1",
     "TestConnectInstance4A99B01E"
    ],
    "UpdateReplacePolicy": "Delete",
@@ -383,6 +388,7 @@
     "InstanceStorageConfigProviderframeworkonEventServiceRoleDefaultPolicy1C78B94B",
     "InstanceStorageConfigProviderframeworkonEventServiceRole9EA1F8D0",
     "Key961B73FD",
+    "TestConnectInstanceConfigSCREENRECORDINGS7F7EBBA6",
     "TestConnectInstance4A99B01E"
    ],
    "UpdateReplacePolicy": "Delete",
@@ -888,7 +894,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "740697ffbbc21cabb5e70e9f54dad51bfa945bcee02cb14d2c97efc2bb8cf1dc.zip"
+     "S3Key": "a73cb3970f8c7cdc9a3ed5b2be86ec80a9b9f61459170ff8930ed471e803d164.zip"
     },
     "Description": "Provider handler for Connect.associateInstanceStorageConfig() & disassociateInstanceStorageConfig()",
     "Handler": "index.onEvent",
@@ -1669,6 +1675,7 @@
     "IntegrationAssociationProviderframeworkonEventE0D053E0",
     "IntegrationAssociationProviderframeworkonEventServiceRoleDefaultPolicyB2C6126F",
     "IntegrationAssociationProviderframeworkonEventServiceRole506DCE8E",
+    "QconnectSampleTestAssistantTestAssistantAssociationA72E7A37",
     "QconnectSampleTestKnowledgeBaseA685253D",
     "TestConnectInstance4A99B01E"
    ],
@@ -1768,7 +1775,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "900e9ba4b7e86ff8504c33a688f310486fd84ba0ac791eba1c72d62482ffdf1e.zip"
+     "S3Key": "833b3624e2fdfdd7e2199041977f64e2ddd8b4ed1233fb5f597fe876afd79933.zip"
     },
     "Description": "Provider handler for Connect.createIntegrationAssociation() & deleteIntegrationAssociation()",
     "Handler": "index.onEvent",
@@ -2552,6 +2559,7 @@
     "IntegrationAssociationProviderframeworkonEventE0D053E0",
     "IntegrationAssociationProviderframeworkonEventServiceRoleDefaultPolicyB2C6126F",
     "IntegrationAssociationProviderframeworkonEventServiceRole506DCE8E",
+    "QconnectSampleTestKnowledgeBaseTestKnowledgeBaseIntegrationAssociationF54A7E07",
     "TestConnectInstance4A99B01E"
    ],
    "UpdateReplacePolicy": "Delete",
@@ -2644,7 +2652,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "785480a5ce953c1ee3588fcd0fc6a978a21bebfd4ed24af3c12f73d654664f0d.zip"
+     "S3Key": "6da47951b786b60da2708001db674d374f4050424174988cdad4da5e4d46ee1a.zip"
     },
     "Description": "Provider handler for ConnectCases domain operations",
     "Handler": "index.onEvent",
@@ -3308,7 +3316,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "afeaaaa89aa58f63f04dc9e863876289c51339f8dfad10fc4cf37ec5904fcc52.zip"
+     "S3Key": "a3106a681ce3ee8b7f170f3bb1e01bf4b9b9b1080fcb53604cc987483c9a5ec5.zip"
     },
     "Description": "Provider handler for connect.listPrompts()",
     "Handler": "index.onEvent",
@@ -3833,13 +3841,13 @@
     "NovaLite": "us.amazon.nova-lite-v1:0",
     "NovaPro": "us.amazon.nova-pro-v1:0",
     "ClaudeHaiku": "us.anthropic.claude-3-haiku-20240307-v1:0",
-    "ClaudeSonnet": "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+    "ClaudeSonnet": "us.anthropic.claude-sonnet-4-20250514-v1:0"
    },
    "us-west-2": {
     "NovaLite": "us.amazon.nova-lite-v1:0",
     "NovaPro": "us.amazon.nova-pro-v1:0",
     "ClaudeHaiku": "us.anthropic.claude-3-haiku-20240307-v1:0",
-    "ClaudeSonnet": "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+    "ClaudeSonnet": "us.anthropic.claude-sonnet-4-20250514-v1:0"
    },
    "ap-northeast-1": {
     "NovaLite": "apac.amazon.nova-lite-v1:0",
