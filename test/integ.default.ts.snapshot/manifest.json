@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/09de06e4f4943a56b960e0ccccfb4b8e9b613fc92d9ecbd063dc1cad77861bd5.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1dd21475d70485691fe49f1941f6665eac0b3e38966ff5a5a9cbe7419f680b16.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -552,6 +552,25 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "UserSampleTestRoutingProfileFBA0B5F5"
+          }
+        ],
+        "/TestConnectStack/UserSample/UserPasswordSecret": [
+          {
+            "type": "aws:cdk:analytics:construct",
+            "data": {
+              "generateSecretString": {
+                "passwordLength": "*",
+                "excludePunctuation": true,
+                "requireEachIncludedType": true
+              },
+              "removalPolicy": "destroy"
+            }
+          }
+        ],
+        "/TestConnectStack/UserSample/UserPasswordSecret/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserSampleUserPasswordSecret6D2B4D5D"
           }
         ],
         "/TestConnectStack/UserSample/User-test/Resource": [

@@ -1303,6 +1303,28 @@
     "UserSampleTestQueue15C8D25C"
    ]
   },
+  "UserSampleUserPasswordSecret6D2B4D5D": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "GenerateSecretString": {
+     "ExcludePunctuation": true,
+     "PasswordLength": 20,
+     "RequireEachIncludedType": true
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "cdk_nag": {
+     "rules_to_suppress": [
+      {
+       "reason": "This is a sample/integration-test-only credential. Automatic rotation is not required.",
+       "id": "AwsSolutions-SMG4"
+      }
+     ]
+    }
+   }
+  },
   "UserSampleUsertest15E3FB56": {
    "Type": "AWS::Connect::User",
    "Properties": {
@@ -1317,7 +1339,18 @@
       "Arn"
      ]
     },
-    "Password": "JEV(N+!7z&eLZ~w_0Tj?",
+    "Password": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "UserSampleUserPasswordSecret6D2B4D5D"
+       },
+       ":SecretString:::}}"
+      ]
+     ]
+    },
     "PhoneConfig": {
      "PhoneType": "SOFT_PHONE"
     },

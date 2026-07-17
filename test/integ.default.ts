@@ -4,6 +4,8 @@ import { IntegTest } from '@aws-cdk/integ-tests-alpha';
 import { App, CfnMapping, RemovalPolicy, Stack } from 'aws-cdk-lib';
 import * as kms from 'aws-cdk-lib/aws-kms';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
+import { NagSuppressions } from 'cdk-nag';
 import { Construct } from 'constructs';
 import * as appintegrations from '../src/appintegrations';
 import * as connect from '../src/connect';
@@ -165,12 +167,31 @@ class UserSample extends Construct {
       defaultOutboundQueue: this.queue,
     });
 
+    // Generate the user's password with Secrets Manager instead of hardcoding it,
+    // so no plaintext credential is embedded in the synthesized CloudFormation template.
+    // The generated password satisfies the Amazon Connect password policy
+    // (8-64 chars, at least one uppercase, one lowercase, and one number).
+    const userPasswordSecret = new secretsmanager.Secret(this, 'UserPasswordSecret', {
+      generateSecretString: {
+        passwordLength: 20,
+        excludePunctuation: true,
+        requireEachIncludedType: true,
+      },
+      removalPolicy: RemovalPolicy.DESTROY,
+    });
+    NagSuppressions.addResourceSuppressions(userPasswordSecret, [
+      {
+        id: 'AwsSolutions-SMG4',
+        reason: 'This is a sample/integration-test-only credential. Automatic rotation is not required.',
+      },
+    ]);
+
     /*const user =*/ new connect.User(this, 'User-test', {
       instance: props.instance,
       username: 'test',
-      // Note: Do not use this password in your environment.
-      //       This password is generated only for integration testing.
-      password: 'JEV(N+!7z&eLZ~w_0Tj?',
+      // The password is resolved at deploy time via a Secrets Manager dynamic reference,
+      // so the template only contains a `{{resolve:secretsmanager:...}}` token.
+      password: userPasswordSecret.secretValue.unsafeUnwrap(),
       identityInfo: {
         firstName: 'Test',
         lastName: 'Test',
